@@ -29,3 +29,7 @@ The homepage, using Material UI components, to simply list all the sites in the 
 ## Copyright and Ownership
 
 All terms used are copyright to their original authors.
+
+## Live Demo
+
+Live demo hosted on Vercel [MongoDB, React Next.js, and Material UI Demo](http://mongodb-react-nextjs-mui-demo.vercel.app/)
