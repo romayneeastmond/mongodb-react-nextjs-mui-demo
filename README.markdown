@@ -5,6 +5,7 @@ A MongoDB, React Next.js, and Material UI project that shows basic Create, Retri
 ## How to Use
 
 Run an npm install or update
+
 ```
 npm i
 ```
@@ -18,6 +19,7 @@ Before starting the project, do the following:
 1. Edit the /src/data/db.js file which is used to seed the MongoDB with data; making changes to this file will also add, update, or delete sites from the collection.
 
 Start the Next.js React app by using
+
 ```
 npm run dev
 ```
@@ -32,4 +34,4 @@ All terms used are copyright to their original authors.
 
 ## Live Demo
 
-Live demo hosted on Vercel [MongoDB, React Next.js, and Material UI Demo](http://mongodb-react-nextjs-mui-demo.vercel.app/)
+Live demo hosted on Vercel [MongoDB, React Next.js, and Material UI Demo](http://mongodb-react-nextjs-mui-demo.vercel.app/) and [Swagger Endpoint Api Documentation](http://mongodb-react-nextjs-mui-demo.vercel.app/swagger)
