@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Box from '@mui/material/Box'
 import Chip from '@mui/material/Chip'
 import Container from '@mui/material/Container'
+import LinearProgress from '@mui/material/LinearProgress'
 import Link from '@mui/material/Link'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -19,6 +20,7 @@ import { sites } from '../src/data/db'
 
 const Home = () => {
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const load = async () => {
@@ -49,7 +51,7 @@ const Home = () => {
             })
 
             setData(storedSites)
-
+            setLoading(false)
             commit(storedSites)
         };
 
@@ -123,7 +125,7 @@ const Home = () => {
                         </ol>
                     </Typography>
 
-                    {data.length > 0 && (
+                    {data.length > 0 ? (
                         <TableContainer>
                             <Table sx={{ minWidth: 850 }} size='small'>
                                 <TableHead>
@@ -160,6 +162,21 @@ const Home = () => {
                                 </TableBody>
                             </Table>
                         </TableContainer>
+                    ) : (
+                        <>
+                            {
+                                loading === true &&
+                                <LinearProgress />
+                            }
+
+                            {
+                                loading === false &&
+                                <Typography component='p' gutterBottom>
+                                    No sites have been added.
+                                </Typography>
+
+                            }
+                        </>
                     )}
                 </Box>
             </Container>
