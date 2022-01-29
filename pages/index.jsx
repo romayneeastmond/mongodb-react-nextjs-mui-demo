@@ -127,7 +127,7 @@ const Home = () => {
                     </Typography>
 
                     {data.length > 0 ? (
-                        <Paper sx={{ my: 4 }} elevation={4} square>
+                        <Paper sx={{ my: 4 }} elevation={5} square>
                             <TableContainer>
                                 <Table sx={{ minWidth: 850 }} size='small'>
                                     <TableHead>
