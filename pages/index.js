@@ -6,6 +6,7 @@ import Chip from '@mui/material/Chip'
 import Container from '@mui/material/Container'
 import LinearProgress from '@mui/material/LinearProgress'
 import Link from '@mui/material/Link'
+import Paper from '@mui/material/Paper'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
@@ -114,54 +115,56 @@ const Home = () => {
                     </Typography>
 
 
-                    <Typography component='p' variant='h6' gutterBottom>
+                    <Typography sx={{ fontSize: 12 }} component='p' variant='h6' gutterBottom>
                         Getting Started
                     </Typography>
 
-                    <Typography component='div' gutterBottom>
+                    <Typography sx={{ fontSize: 12, marginLeft: -3 }} component='div' gutterBottom>
                         <ol>
                             <li>Edit .env file MONGODB_URI variable, to point to the MongoDb instance (remember to whitelist IP addresses) </li>
-                            <li>Edit the /src/data/db.js entries to automatically add, update, or delete sites within the MongoDb collection.</li>
+                            <li>Edit the /src/data/db.js entries to automatically add, update, or delete sites within the MongoDb collection</li>
                         </ol>
                     </Typography>
 
                     {data.length > 0 ? (
-                        <TableContainer>
-                            <Table sx={{ minWidth: 850 }} size='small'>
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>Url / Description</TableCell>
-                                        <TableCell align='center'>Last Checked</TableCell>
-                                        <TableCell align='center'>Action Performed</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {data.map((site, index) => (
-                                        <TableRow key={index}>
-                                            <TableCell>
-                                                <Typography component='p'>
-                                                    <Link color='primary' href={site.url} target='_blank'>
-                                                        {site.url}
-                                                    </Link>
-                                                </Typography>
-
-                                                <Typography component='p'>
-                                                    {site.description}
-                                                </Typography>
-                                            </TableCell>
-                                            <TableCell align='center'>
-                                                {site.lastChecked && new Date(site.lastChecked).toISOString()}
-                                            </TableCell>
-                                            <TableCell align='center'>
-                                                {site.action === 'Add' && <Chip label='Add' color='success' />}
-                                                {site.action === 'Update' && <Chip label='Update' color='info' />}
-                                                {site.action === 'Delete' && <Chip label='Delete' color='error' />}
-                                            </TableCell>
+                        <Paper sx={{ my: 4 }} elevation={4} square>
+                            <TableContainer>
+                                <Table sx={{ minWidth: 850 }} size='small'>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Url / Description</TableCell>
+                                            <TableCell align='center'>Last Checked</TableCell>
+                                            <TableCell align='center'>Action Performed</TableCell>
                                         </TableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
+                                    </TableHead>
+                                    <TableBody>
+                                        {data.map((site, index) => (
+                                            <TableRow key={index}>
+                                                <TableCell>
+                                                    <Typography component='p'>
+                                                        <Link color='primary' href={site.url} target='_blank'>
+                                                            {site.url}
+                                                        </Link>
+                                                    </Typography>
+
+                                                    <Typography component='p'>
+                                                        {site.description}
+                                                    </Typography>
+                                                </TableCell>
+                                                <TableCell align='center'>
+                                                    {site.lastChecked && new Date(site.lastChecked).toISOString()}
+                                                </TableCell>
+                                                <TableCell align='center'>
+                                                    {site.action === 'Add' && <Chip label='Add' color='success' />}
+                                                    {site.action === 'Update' && <Chip label='Update' color='info' />}
+                                                    {site.action === 'Delete' && <Chip label='Delete' color='error' />}
+                                                </TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </Paper>
                     ) : (
                         <>
                             {
