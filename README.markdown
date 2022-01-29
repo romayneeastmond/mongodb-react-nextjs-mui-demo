@@ -32,6 +32,8 @@ The homepage, using Material UI components, to simply list all the sites in the 
 
 All terms used are copyright to their original authors.
 
-## Live Demo
+## Live Azure Demo
 
-Live demo hosted on Vercel [MongoDB, React Next.js, and Material UI Demo](http://mongodb-react-nextjs-mui-demo.vercel.app/) and [Swagger Endpoint Api Documentation](http://mongodb-react-nextjs-mui-demo.vercel.app/swagger)
+Live demo hosted in Microsoft Azure [MongoDB, React Next.js, and Material UI Demo](https://dev-mongodb-react-nextjs-mui-demo.azurewebsites.net/) and [Swagger Endpoint Api Documentation](https://dev-mongodb-react-nextjs-mui-demo.azurewebsites.net/swagger).
+
+Azure F1 instances are :snowflake: ice cold. That first load will need some :sun_with_face: warming up.
