@@ -1,6 +1,6 @@
 # MongoDB, React Next.js, and Material UI Demo
 
-A MongoDB, React Next.js, and Material UI project that shows basic Create, Retrieve, Update, and Delete (CRUD) operations.
+A MongoDB, React Next.js, and Material UI project that shows basic Create, Retrieve, Update, and Delete (CRUD) operations. The Next.js generated API endpoints are decorated using [Swagger](http://mongodb-react-nextjs-mui-demo.vercel.app/). In another repository this API functionality has been replaced with [Serverless AWS Lambda functions running on Express](https://github.com/romayneeastmond/serverless-aws-lambda-express-mongodb/).
 
 ## How to Use
 
