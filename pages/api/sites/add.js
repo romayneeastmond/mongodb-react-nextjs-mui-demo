@@ -33,15 +33,15 @@ import clientPromise from '../../../lib/mongodb'
  */
 const handler = async (req, res) => {
     if (req.method !== 'POST') {
-        res.status(405).send({ error: 'Method Not Allowed' })
+        res.status(405).json({ error: 'Method Not Allowed' })
 
         return
     }
 
     const { url, description } = req.body
 
-    if (url.trim().length === 0 || description.trim().length === 0) {
-        res.status(422).send({ error: 'Request Payload requires url and description values' })
+    if ((url === undefined || url.trim().length === 0) || (description === undefined || description.trim().length === 0)) {
+        res.status(422).json({ error: 'Request Payload requires url and description values' })
 
         return
     }
@@ -55,7 +55,7 @@ const handler = async (req, res) => {
 
         res.status(200).json(data)
     }).catch((error) => {
-        res.status(500).send({ error: error })
+        res.status(500).json({ error: error })
     })
 }
 

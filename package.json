@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "explorer http://localhost:3000 & node server.js",
-    "build": "npm install",
+    "build": "",
     "start": "node server.js"
   },
   "dependencies": {
