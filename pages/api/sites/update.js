@@ -45,7 +45,7 @@ import clientPromise from '../../../lib/mongodb'
  */
 const handler = async (req, res) => {
     if (req.method !== 'POST' && req.method !== 'PUT') {
-        res.status(405).send({ error: 'Method Not Allowed' })
+        res.status(405).json({ error: 'Method Not Allowed' })
 
         return
     }
@@ -55,16 +55,16 @@ const handler = async (req, res) => {
 
     let errors = []
 
-    if (id.trim().length === 0) {
+    if (id === undefined || id.trim().length === 0) {
         errors.push('Query String Parameters requires an id value')
     }
 
-    if (url.trim().length === 0 || description.trim().length === 0) {
+    if ((url === undefined || url.trim().length === 0) || (description === undefined || description.trim().length === 0)) {
         errors.push('Request Payload requires url and description values')
     }
 
     if (errors.length > 0) {
-        res.status(422).send({ errors: errors })
+        res.status(422).json({ errors: errors })
 
         return
     }
@@ -79,7 +79,7 @@ const handler = async (req, res) => {
 
         res.status(200).json(data)
     }).catch((error) => {
-        res.status(500).send({ error: error })
+        res.status(500).json({ error: error })
     })
 }
 

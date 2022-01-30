@@ -26,15 +26,15 @@ import clientPromise from '../../../lib/mongodb'
  */
 const handler = async (req, res) => {
     if (req.method !== 'DELETE') {
-        res.status(405).send({ error: 'Method Not Allowed' })
+        res.status(405).json({ error: 'Method Not Allowed' })
 
         return
     }
 
     const { id } = req.query
 
-    if (id.trim().length === 0) {
-        res.status(422).send({ error: 'Query String Parameters requires an id value' })
+    if (id === undefined || id.trim().length === 0) {
+        res.status(422).json({ error: 'Query String Parameters requires an id value' })
 
         return
     }
@@ -48,7 +48,7 @@ const handler = async (req, res) => {
 
         res.status(200).json(data)
     }).catch((error) => {
-        res.status(500).send({ error: error })
+        res.status(500).json({ error: error })
     })
 }
 
