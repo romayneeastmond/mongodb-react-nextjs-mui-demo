@@ -18,7 +18,7 @@ const sitesService = () => {
     }
 
     const remove = async (id) => {
-        const res = await fetch(`api/sites/delete?id=${id}`, {
+        const res = await fetch(`api/sites/delete?id=${encodeURIComponent(id)}`, {
             method: 'DELETE'
         })
 
@@ -32,7 +32,7 @@ const sitesService = () => {
     }
 
     const get = async (id) => {
-        const res = await fetch(`api/sites/get?id=${id}`)
+        const res = await fetch(`api/sites/get?id=${encodeURIComponent(id)}`)
 
         if (!res.ok) {
             return { error: 'Site not found.' }
@@ -56,7 +56,7 @@ const sitesService = () => {
     }
 
     const update = async (id, site) => {
-        const res = await fetch(`api/sites/update?id=${id}`, {
+        const res = await fetch(`api/sites/update?id=${encodeURIComponent(id)}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

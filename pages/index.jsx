@@ -125,6 +125,14 @@ const Home = () => {
                             <li>Edit the /src/data/db.js entries to automatically add, update, or delete sites within the MongoDb collection</li>
                         </ol>
                     </Typography>
+                    <Typography sx={{ fontSize: 12 }} component='div' gutterBottom>
+                        <p>
+                            The Next.js generated API endpoints are decorated using&nbsp;
+                            <Link color='primary' href='/swagger' target='_blank'>
+                                Swagger
+                            </Link>
+                        </p>
+                    </Typography>
 
                     {data.length > 0 ? (
                         <Paper sx={{ my: 4 }} elevation={5} square>
@@ -146,7 +154,6 @@ const Home = () => {
                                                             {site.url}
                                                         </Link>
                                                     </Typography>
-
                                                     <Typography component='p'>
                                                         {site.description}
                                                     </Typography>
